@@ -52,7 +52,7 @@ class GraphBar extends StatefulWidget {
   });
 
   @override
-  _GraphBarState createState() => _GraphBarState();
+  State<GraphBar> createState() => _GraphBarState();
 }
 
 class _GraphBarState extends State<GraphBar> {

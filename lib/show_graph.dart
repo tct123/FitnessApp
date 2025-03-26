@@ -6,7 +6,7 @@ class ShowGraph extends StatefulWidget {
   const ShowGraph({super.key});
 
   @override
-  _ShowGraphState createState() => _ShowGraphState();
+  State<ShowGraph> createState() => _ShowGraphState();
 }
 
 class _ShowGraphState extends State<ShowGraph>
