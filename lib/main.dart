@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 void main() => runApp(ShowGraph());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -22,20 +24,24 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   MyHomePageState createState() => MyHomePageState();
 }
 
 class MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  HomePageBloc _homePageBloc;
-  AnimationController _iconAnimationController;
+  late HomePageBloc _homePageBloc;
+  late AnimationController _iconAnimationController;
 
   @override
   void initState() {
     _homePageBloc = HomePageBloc();
-    _iconAnimationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _iconAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 300),
+    );
     super.initState();
   }
 
@@ -80,15 +86,16 @@ class MyHomePageState extends State<MyHomePage>
                               child: Column(
                                 children: <Widget>[
                                   Text(
-                                    formatterDayOfWeek.format(snapshot.data),
+                                    formatterDayOfWeek.format(snapshot.data!),
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 24.0,
-                                        color: Colors.white,
-                                        letterSpacing: 1.2),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24.0,
+                                      color: Colors.white,
+                                      letterSpacing: 1.2,
+                                    ),
                                   ),
                                   Text(
-                                    formatterDate.format(snapshot.data),
+                                    formatterDate.format(snapshot.data!),
                                     style: TextStyle(
                                       fontSize: 20.0,
                                       color: Colors.white,
@@ -112,14 +119,14 @@ class MyHomePageState extends State<MyHomePage>
                               _homePageBloc.addDate();
                             },
                           ),
-                        )
+                        ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
               RadialProgress(),
-              MonthlyStatusListing()
+              MonthlyStatusListing(),
             ],
           ),
           Positioned(
@@ -129,18 +136,21 @@ class MyHomePageState extends State<MyHomePage>
             child: Container(
               alignment: Alignment.bottomCenter,
               decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.red, width: 4.0)),
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.red, width: 4.0),
+              ),
               child: IconButton(
-                  icon: AnimatedIcon(
-                      icon: AnimatedIcons.menu_close,
-                      color: Colors.red,
-                      progress: _iconAnimationController.view),
-                  onPressed: () {
-                    onIconPressed();
-                  }),
+                icon: AnimatedIcon(
+                  icon: AnimatedIcons.menu_close,
+                  color: Colors.red,
+                  progress: _iconAnimationController.view,
+                ),
+                onPressed: () {
+                  onIconPressed();
+                },
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -159,11 +169,12 @@ class MyHomePageState extends State<MyHomePage>
 }
 
 class MonthlyStatusListing extends StatelessWidget {
+  const MonthlyStatusListing({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Flexible(
-      child:
-      Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
@@ -194,7 +205,7 @@ class MonthlyStatusListing extends StatelessWidget {
 class MonthlyStatusRow extends StatelessWidget {
   final String monthYear, status;
 
-  MonthlyStatusRow(this.monthYear, this.status);
+  const MonthlyStatusRow(this.monthYear, this.status, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -206,16 +217,18 @@ class MonthlyStatusRow extends StatelessWidget {
           Text(
             monthYear,
             style: TextStyle(
-                color: Colors.blue,
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0),
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+            ),
           ),
           Text(
             status,
             style: TextStyle(
-                color: Colors.grey,
-                fontStyle: FontStyle.italic,
-                fontSize: 16.0),
+              color: Colors.grey,
+              fontStyle: FontStyle.italic,
+              fontSize: 16.0,
+            ),
           ),
         ],
       ),
@@ -226,7 +239,7 @@ class MonthlyStatusRow extends StatelessWidget {
 class MonthlyTargetRow extends StatelessWidget {
   final String target, targetAchieved;
 
-  MonthlyTargetRow(this.target, this.targetAchieved);
+  const MonthlyTargetRow(this.target, this.targetAchieved, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -235,10 +248,7 @@ class MonthlyTargetRow extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            target,
-            style: TextStyle(color: Colors.black, fontSize: 18.0),
-          ),
+          Text(target, style: TextStyle(color: Colors.black, fontSize: 18.0)),
           Text(
             targetAchieved,
             style: TextStyle(color: Colors.grey, fontSize: 16.0),

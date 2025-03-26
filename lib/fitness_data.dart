@@ -1,12 +1,12 @@
 class GraphData implements Comparable<GraphData> {
   String label;
   int value;
-  
+
   GraphData(this.label, this.value);
 
   @override
   int compareTo(GraphData other) {
-    return this.value.compareTo(other.value);
+    return value.compareTo(other.value);
   }
 }
 
@@ -19,7 +19,7 @@ List<GraphData> dayData = [
   GraphData("3pm", 160),
   GraphData("6pm", 90),
   GraphData("9pm", 50),
-  GraphData("12pm", 80)
+  GraphData("12pm", 80),
 ];
 
 List<GraphData> weekData = [
@@ -29,7 +29,7 @@ List<GraphData> weekData = [
   GraphData("Wednesday", 1300),
   GraphData("Thursday", 1500),
   GraphData("Friday", 3500),
-  GraphData("Saturday", 4000)
+  GraphData("Saturday", 4000),
 ];
 
 List<GraphData> monthData = [
@@ -64,4 +64,3 @@ List<GraphData> monthData = [
   GraphData("29", 100),
   GraphData("30", 300),
 ];
-

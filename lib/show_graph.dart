@@ -3,18 +3,23 @@ import 'package:fitness_app/graph.dart';
 import 'package:flutter/material.dart';
 
 class ShowGraph extends StatefulWidget {
+  const ShowGraph({super.key});
+
   @override
   _ShowGraphState createState() => _ShowGraphState();
 }
 
-class _ShowGraphState extends State<ShowGraph> with SingleTickerProviderStateMixin<ShowGraph> {
-
-  AnimationController _graphAnimationController;
+class _ShowGraphState extends State<ShowGraph>
+    with SingleTickerProviderStateMixin<ShowGraph> {
+  late AnimationController _graphAnimationController;
 
   @override
   void initState() {
     super.initState();
-    _graphAnimationController = AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _graphAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
   }
 
   @override
@@ -35,7 +40,7 @@ class _ShowGraphState extends State<ShowGraph> with SingleTickerProviderStateMix
             },
             child: Graph(
               animationController: _graphAnimationController,
-              values: dayData
+              values: dayData,
             ),
           ),
         ),

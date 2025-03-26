@@ -1,10 +1,10 @@
 import 'dart:async';
 
 class HomePageBloc {
-
   DateTime selectedDate = DateTime.now();
 
-  StreamController<DateTime> _dateStreamController = StreamController<DateTime>();
+  final StreamController<DateTime> _dateStreamController =
+      StreamController<DateTime>();
 
   Stream<DateTime> get dateStream => _dateStreamController.stream;
 
@@ -21,5 +21,4 @@ class HomePageBloc {
   dispose() {
     _dateStreamController.close();
   }
-
 }
