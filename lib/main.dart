@@ -6,7 +6,7 @@ import 'package:fitness_app/themes/colors.dart';
 import 'package:fitness_app/top_bar.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(ShowGraph());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
