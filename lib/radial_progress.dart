@@ -7,10 +7,10 @@ class RadialProgress extends StatefulWidget {
   const RadialProgress({super.key});
 
   @override
-  _RadialProgressState createState() => _RadialProgressState();
+  RadialProgressState createState() => RadialProgressState();
 }
 
-class _RadialProgressState extends State<RadialProgress>
+class RadialProgressState extends State<RadialProgress>
     with SingleTickerProviderStateMixin {
   late AnimationController _radialProgressAnimationController;
   late Animation<double> _progressAnimation;
